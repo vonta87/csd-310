@@ -31,21 +31,25 @@ finally:
     cursor = db.cursor() 
     cursor.execute(" SELECT * FROM studio")
     film = cursor.fetchall()
+    print(f"-- DISPLAYING Studio RECORDS --")
     for studio in film:
         print("Studio ID: {}\n Studio Name:{}\n".format(studio[0],studio[1])) #three fields
     
     cursor.execute("SELECT * FROM genre")
     records =cursor.fetchall()
+    print(f"-- DISPLAYING Genre RECORDS --")
     for genre in records:
         print("Genre ID: {}\n Genre Name: {}\n".format(genre[0],genre[1]))
     
     cursor.execute("SELECT film_name,film_runtime FROM film WHERE film_runtime < 120")
     short_film = cursor.fetchall()
+    print(f"-- DISPLAYING Short Film RECORDS --")
     for films in short_film:
         print("Film Name: {}\n Runtime: {}\n".format(films[0],films[1],))
     
     cursor.execute("SELECT film_name,film_director FROM film ORDER BY film_director")
     director = cursor.fetchall()
+    print(f"-- DISPLAYING Director RECORDS in Order --")
     for directors in director:
         print("Film Name: {}\n Director: {}\n".format(directors[0],directors[1]))
 
